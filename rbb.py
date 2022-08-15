@@ -8,15 +8,8 @@ load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 client = discord.Client()
-roys = ["rbb", "Rbb", "RBb", "RBB", "rBb", "RbB", "rbB", "rBB"]
-commands = {"roys big": ["balls"],
-            "roy's big": ["balls"],
-            "roys": ["got big balls", "big balls",
-                    "fat juicy delicious scrumptious ginormous jumbo cawck balls"],
-            "roy's": ["got big balls", "big balls",
-                    "fat juicy delicious scrumptious ginormous jumbo cawck balls"],
-            "ken": ["is nice", "has hella girls"],
-            "ray": ["is nice", "has hella girls"]} 
+rbbVal = "rbb"
+commands = [] # implement me
 
 def load_counters():
     with open("counters.json", "r") as f:
@@ -33,7 +26,7 @@ async def on_message(message):
         ran_num = random.randrange(0, len(commands[message.content]))
         await message.channel.send("{}".format(commands[message.content][ran_num]))
 
-    elif message.content.lower() in roys:
+    elif message.content.lower() in rbbVal:
         counters = load_counters()
         counters["rbb"] += 1
         await message.channel.send("Rbb Counter: {}".format(str(counters["rbb"])))
